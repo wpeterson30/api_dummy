@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "7b49483d-e0b6-41ad-8a9a-8a742b13c3a3",
+		"name": "CRUD User Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obter lista usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/user?created=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "created",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter usuário por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"\r",
+							"const schema = {\r",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"id\": \"624cf750cf779e554659641c\",\r",
+							"            \"firstName\": \"Peterson\",\r",
+							"            \"lastName\": \"Silva\",\r",
+							"            \"email\": \"wpeterson@gmail.com\",\r",
+							"            \"registerDate\": \"2022-04-06T02:13:36.841Z\",\r",
+							"            \"updatedDate\": \"2022-04-06T02:13:36.841Z\"\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"id\",\r",
+							"        \"firstName\",\r",
+							"        \"lastName\",\r",
+							"        \"email\",\r",
+							"        \"registerDate\",\r",
+							"        \"updatedDate\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"id\": {\r",
+							"            \"$id\": \"#/properties/id\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The id schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"624cf750cf779e554659641c\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"firstName\": {\r",
+							"            \"$id\": \"#/properties/firstName\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The firstName schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"Peterson\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"lastName\": {\r",
+							"            \"$id\": \"#/properties/lastName\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The lastName schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"Silva\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"email\": {\r",
+							"            \"$id\": \"#/properties/email\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The email schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"wpeterson@gmail.com\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"registerDate\": {\r",
+							"            \"$id\": \"#/properties/registerDate\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The registerDate schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"2022-04-06T02:13:36.841Z\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"updatedDate\": {\r",
+							"            \"$id\": \"#/properties/updatedDate\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The updatedDate schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"2022-04-06T02:13:36.841Z\"\r",
+							"            ]\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validar a estrutura do corpo da resposta\", function () {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"id = 624cf750cf779e554659641c \", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(\"624cf750cf779e554659641c\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/user/624f410515c4ed5b5f6295ef",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"624f410515c4ed5b5f6295ef"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"lastName\": \"pereira\",\r\n        \"firstName\": \"Alexandre\",\r\n        \"email\": \"12347811@gmail.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummyapi.io/data/v1/user?created=1",
+					"protocol": "https",
+					"host": [
+						"dummyapi",
+						"io"
+					],
+					"path": [
+						"data",
+						"v1",
+						"user"
+					],
+					"query": [
+						{
+							"key": "created",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar usuário",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"624f3534f95a142659b72858\",\r\n    \"firstName\": \"Alexandre Silva \",\r\n    \"lastName\": \"Pereira\",\r\n    \"email\": \"12347811@gmail.com\",\r\n    \"registerDate\": \"2022-04-05T19:22:58.356Z\",\r\n    \"updatedDate\": \"2022-04-05T19:22:58.356Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}user/624f3534f95a142659b72858",
+					"host": [
+						"{{baseUrl}}user"
+					],
+					"path": [
+						"624f3534f95a142659b72858"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar usuário",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}user/624cf750cf779e554659641c",
+					"host": [
+						"{{baseUrl}}user"
+					],
+					"path": [
+						"624cf750cf779e554659641c"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://dummyapi.io/data/v1/",
+			"type": "string"
+		}
+	]
+}
