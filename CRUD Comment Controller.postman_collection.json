@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "5e1dedc8-6fec-4962-b0ab-cb10ce0ca248",
+		"name": "CRUD Comment Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obter lista comentarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}comment",
+					"host": [
+						"{{baseUrl}}comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter lista por postagem",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}post/60d21b7967d0d8992e610d1b/comment",
+					"host": [
+						"{{baseUrl}}post"
+					],
+					"path": [
+						"60d21b7967d0d8992e610d1b",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter lista por usuário",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}user/60d0fe4f5311236168a109d0/comment",
+					"host": [
+						"{{baseUrl}}user"
+					],
+					"path": [
+						"60d0fe4f5311236168a109d0",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar comentário",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"message\": \"legal \",\r\n   \"owner\": \"624db678ba58401dfed79d3e\",// id cliente criado na base dados usuarios\r\n   \"post\": \"624dc16a5908425a51278448\" // id criado na postagem (foto)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}comment/create",
+					"host": [
+						"{{baseUrl}}comment"
+					],
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir comentário",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "app-id",
+						"value": "62476db7376cedd6baa6d186",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/comment/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"comment",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

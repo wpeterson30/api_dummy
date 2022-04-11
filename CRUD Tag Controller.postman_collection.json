@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "713b8233-6796-4bcb-840e-963317064426",
+		"name": "CRUD Tag Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obter lista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
